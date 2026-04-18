@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modly</title>Crie
+  <title>Modly</title>
   <meta name="description" content="Modly: O ponto de partida para sua criação. Customize texturas, sons e animações agora, enquanto desenvolvemos o Mod Studio completo." />
   <link rel="icon" type="image/png" href="mmslogosimbolodc.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -222,7 +222,7 @@
         <span style="font-size:10px;color:var(--muted)">▾</span>
       </button>
       <div class="lang-dropdown" id="langDropdown">
-        <div class="lang-option" onclick="setLang('pt')">🇧🇷 &nbsp;Português</div>
+        <div class="lang-option active" onclick="setLang('pt')">🇧🇷 &nbsp;Português</div>
         <div class="lang-option" onclick="setLang('en')">🇺🇸 &nbsp;English</div>
         <div class="lang-option" onclick="setLang('es')">🇪🇸 &nbsp;Español</div>
         <div class="lang-option" onclick="setLang('fr')">🇫🇷 &nbsp;Français</div>
@@ -405,68 +405,174 @@ const i18n = {
     'hero.title':'O primeiro passo para o seu Mod:<br/>Crie <em>Resource Packs</em> com o Modly',
     'hero.desc':'Modly: Customize seu Minecraft visualmente. Crie pacotes de texturas, sons e animações sem tocar em uma linha de código JSON.',
     'hero.btn.blog':'Ver novidades','hero.btn.roadmap':'Ver Roadmap',
-
     'download.card.title':'Modly para Windows',
-
     'blog.title':'Novidades & Atualizações','blog.sub':'Acompanhe o progresso do desenvolvimento do Modly, novas funcionalidades e anúncios importantes.',
-
+    'blog.readmore':'Ler mais →',
     'footer.copy':'Não afiliado à Mojang/Microsoft',
   },
-
   en: {
     'nav.features':'Features','nav.cta':'🗺 Roadmap',
     'hero.badge':'Actively in development',
     'hero.title':'Your first step into modding:<br/>Create <em>Resource Packs</em> with Modly',
     'hero.desc':'Modly: Customize your Minecraft visually. Create texture packs, sounds and animations without touching a single line of JSON code.',
     'hero.btn.blog':'See updates','hero.btn.roadmap':'See Roadmap',
-
     'download.card.title':'Modly for Windows',
-
     'blog.title':'Updates & News','blog.sub':'Follow Modly development progress, new features and announcements.',
-
+    'blog.readmore':'Read more →',
     'footer.copy':'Not affiliated with Mojang/Microsoft',
   },
-
   es: {
     'nav.features':'Funcionalidades','nav.cta':'🗺 Roadmap',
     'hero.badge':'En desarrollo activo',
     'hero.title':'El primer paso para tu Mod:<br/>Crea <em>Resource Packs</em> con Modly',
     'hero.desc':'Modly: Personaliza tu Minecraft visualmente. Crea texturas, sonidos y animaciones sin escribir código JSON.',
     'hero.btn.blog':'Ver novedades','hero.btn.roadmap':'Ver Roadmap',
-
     'download.card.title':'Modly para Windows',
-
     'blog.title':'Novedades & Actualizaciones','blog.sub':'Sigue el progreso de Modly, nuevas funciones y anuncios importantes.',
-
+    'blog.readmore':'Leer más →',
     'footer.copy':'No afiliado a Mojang/Microsoft',
   },
-
   fr: {
     'nav.features':'Fonctionnalités','nav.cta':'🗺 Roadmap',
     'hero.badge':'En développement actif',
     'hero.title':'Votre premier pas dans le modding :<br/>Créez des <em>Resource Packs</em> avec Modly',
     'hero.desc':'Modly : Personnalisez Minecraft visuellement. Créez textures, sons et animations sans écrire de code JSON.',
     'hero.btn.blog':'Voir les nouveautés','hero.btn.roadmap':'Voir le Roadmap',
-
     'download.card.title':'Modly pour Windows',
-
     'blog.title':'Actualités & Mises à jour','blog.sub':'Suivez le développement de Modly et ses nouveautés.',
-
+    'blog.readmore':'Lire plus →',
     'footer.copy':'Non affilié à Mojang/Microsoft',
   },
-
   de: {
     'nav.features':'Funktionen','nav.cta':'🗺 Roadmap',
     'hero.badge':'Aktiv in Entwicklung',
     'hero.title':'Dein erster Schritt zum Mod:<br/>Erstelle <em>Resource Packs</em> mit Modly',
     'hero.desc':'Modly: Passe dein Minecraft visuell an. Erstelle Texturen, Sounds und Animationen ohne JSON-Code.',
     'hero.btn.blog':'Neuigkeiten sehen','hero.btn.roadmap':'Roadmap sehen',
-
     'download.card.title':'Modly für Windows',
-
     'blog.title':'Neuigkeiten & Updates','blog.sub':'Verfolge die Entwicklung von Modly und neue Features.',
-
+    'blog.readmore':'Mehr lesen →',
     'footer.copy':'Nicht mit Mojang/Microsoft verbunden',
+  }
+};
+
+// ✅ FIX 1: langMeta estava ausente — adicionado aqui
+const langMeta = {
+  pt: { flag: '🇧🇷', label: 'PT', html: 'pt-BR' },
+  en: { flag: '🇺🇸', label: 'EN', html: 'en' },
+  es: { flag: '🇪🇸', label: 'ES', html: 'es' },
+  fr: { flag: '🇫🇷', label: 'FR', html: 'fr' },
+  de: { flag: '🇩🇪', label: 'DE', html: 'de' }
+};
+
+// ✅ FIX 2: postData estava ausente — adicionado aqui
+const postData = {
+  post2: {
+    tagClass: 'update',
+    banner: 'BlogBannerMMS.png',
+    tagLabel: { pt:'🚀 Update', en:'🚀 Update', es:'🚀 Update', fr:'🚀 Update', de:'🚀 Update' },
+    cardTitle: {
+      pt: 'Sprint 1 to 3', en: 'Sprint 1 to 3', es: 'Sprint 1 a 3', fr: 'Sprint 1 à 3', de: 'Sprint 1 bis 3'
+    },
+    cardDesc: {
+      pt: 'Confira tudo o que foi desenvolvido nos três primeiros sprints do Modly: da interface base ao editor de texturas completo.',
+      en: 'Check out everything developed in Modly\'s first three sprints: from the base interface to the full texture editor.',
+      es: 'Descubre todo lo que se desarrolló en los primeros tres sprints de Modly: desde la interfaz base hasta el editor de texturas completo.',
+      fr: 'Découvrez tout ce qui a été développé lors des trois premiers sprints de Modly : de l\'interface de base à l\'éditeur de textures complet.',
+      de: 'Entdecke alles, was in den ersten drei Sprints von Modly entwickelt wurde: von der Basisoberfläche bis zum vollständigen Textur-Editor.'
+    },
+    date: { pt:'03 Abr 2025', en:'Apr 03, 2025', es:'03 Abr 2025', fr:'03 Avr 2025', de:'03. Apr 2025' },
+    body: {
+      pt: `<p>Nos três primeiros sprints do Modly, construímos a base completa do aplicativo. Aqui está um resumo do que foi feito:</p>
+           <p><strong>Sprint 1 — Interface Base</strong></p>
+           <ul><li>Editor de idioma com suporte a pt_BR e en_US</li><li>Ícone do resource pack customizável</li><li>Configurações com reinício da sessão</li><li>Sistema de logs de ações</li></ul>
+           <p><strong>Sprint 2 — Texturas</strong></p>
+           <ul><li>Suporte a mobs, GUI e ambiente</li><li>Pixel Editor para texturas ≤32px</li><li>Image Editor popup para texturas ≥64px</li><li>Cards no Workspace para acesso rápido</li></ul>
+           <p><strong>Sprint 3 — Em andamento</strong></p>
+           <p>O Sprint 3 foca em animações: editor de frames com preview, geração de .mcmeta e suporte a texturas animadas como lava e água.</p>`,
+      en: `<p>In Modly's first three sprints, we built the complete app foundation. Here's a summary of what was done:</p>
+           <p><strong>Sprint 1 — Base Interface</strong></p>
+           <ul><li>Language editor with pt_BR and en_US support</li><li>Customizable resource pack icon</li><li>Settings with session reset</li><li>Action log system</li></ul>
+           <p><strong>Sprint 2 — Textures</strong></p>
+           <ul><li>Support for mobs, GUI and environment</li><li>Pixel Editor for textures ≤32px</li><li>Image Editor popup for textures ≥64px</li><li>Workspace cards for quick access</li></ul>
+           <p><strong>Sprint 3 — In progress</strong></p>
+           <p>Sprint 3 focuses on animations: frame editor with preview, .mcmeta generation and support for animated textures like lava and water.</p>`,
+      es: `<p>En los primeros tres sprints de Modly, construimos la base completa de la aplicación. Aquí hay un resumen:</p>
+           <p><strong>Sprint 1 — Interfaz Base</strong></p>
+           <ul><li>Editor de idioma con soporte pt_BR y en_US</li><li>Ícono del resource pack personalizable</li><li>Configuración con reinicio de sesión</li><li>Sistema de registros de acciones</li></ul>
+           <p><strong>Sprint 2 — Texturas</strong></p>
+           <ul><li>Soporte para mobs, GUI y entorno</li><li>Editor de Pixel para texturas ≤32px</li><li>Editor de Imagen popup para texturas ≥64px</li><li>Tarjetas en el Workspace para acceso rápido</li></ul>
+           <p><strong>Sprint 3 — En progreso</strong></p>
+           <p>El Sprint 3 se centra en animaciones: editor de frames con previsualización, generación de .mcmeta y texturas animadas.</p>`,
+      fr: `<p>Durant les trois premiers sprints de Modly, nous avons construit la base complète de l'application. Voici un résumé :</p>
+           <p><strong>Sprint 1 — Interface de base</strong></p>
+           <ul><li>Éditeur de langue avec support pt_BR et en_US</li><li>Icône du resource pack personnalisable</li><li>Paramètres avec réinitialisation de session</li><li>Système de journaux d'actions</li></ul>
+           <p><strong>Sprint 2 — Textures</strong></p>
+           <ul><li>Support pour mobs, GUI et environnement</li><li>Éditeur de pixels pour textures ≤32px</li><li>Éditeur d'image popup pour textures ≥64px</li><li>Cartes dans le Workspace pour accès rapide</li></ul>
+           <p><strong>Sprint 3 — En cours</strong></p>
+           <p>Le Sprint 3 se concentre sur les animations : éditeur de frames avec aperçu, génération de .mcmeta et textures animées.</p>`,
+      de: `<p>In den ersten drei Sprints von Modly haben wir die komplette App-Grundlage gebaut. Hier ist eine Zusammenfassung:</p>
+           <p><strong>Sprint 1 — Basis-Interface</strong></p>
+           <ul><li>Sprach-Editor mit pt_BR und en_US Unterstützung</li><li>Anpassbares Resource-Pack-Icon</li><li>Einstellungen mit Sitzungs-Reset</li><li>Aktions-Log-System</li></ul>
+           <p><strong>Sprint 2 — Texturen</strong></p>
+           <ul><li>Unterstützung für Mobs, GUI und Umgebung</li><li>Pixel-Editor für Texturen ≤32px</li><li>Bild-Editor-Popup für Texturen ≥64px</li><li>Workspace-Karten für schnellen Zugriff</li></ul>
+           <p><strong>Sprint 3 — In Bearbeitung</strong></p>
+           <p>Sprint 3 konzentriert sich auf Animationen: Frame-Editor mit Vorschau, .mcmeta-Generierung und animierte Texturen wie Lava und Wasser.</p>`
+    }
+  },
+  post1: {
+    tagClass: 'new',
+    banner: null,
+    tagLabel: { pt:'📖 Guia', en:'📖 Guide', es:'📖 Guía', fr:'📖 Guide', de:'📖 Anleitung' },
+    cardTitle: {
+      pt: 'Como o Modly funciona', en: 'How Modly works', es: 'Cómo funciona Modly',
+      fr: 'Comment fonctionne Modly', de: 'Wie Modly funktioniert'
+    },
+    cardDesc: {
+      pt: 'Entenda como o app funciona por dentro: do editor de pixel art até a exportação do seu resource pack pronto para jogar.',
+      en: 'Understand how the app works internally: from the pixel art editor to exporting your resource pack ready to play.',
+      es: 'Entiende cómo funciona la aplicación por dentro: desde el editor de pixel art hasta la exportación de tu resource pack listo para jugar.',
+      fr: 'Comprenez comment l\'application fonctionne en interne : de l\'éditeur de pixel art à l\'exportation de votre resource pack prêt à jouer.',
+      de: 'Verstehe wie die App intern funktioniert: vom Pixel-Art-Editor bis zum Export deines spielbereiten Resource Packs.'
+    },
+    date: { pt:'23 Mar 2025', en:'Mar 23, 2025', es:'23 Mar 2025', fr:'23 Mar 2025', de:'23. Mär 2025' },
+    body: {
+      pt: `<p>O Modly foi desenvolvido para tornar a criação de Resource Packs para Minecraft Java Edition acessível a qualquer pessoa, mesmo sem conhecimento técnico de JSON.</p>
+           <p><strong>Como funciona o Editor de Pixel Art?</strong></p>
+           <p>O editor de pixel art oferece um canvas de 16×16 ou 32×32 pixels com ferramentas de lápis, balde, borracha e conta-gotas. A paleta inclui as cores oficiais do Minecraft.</p>
+           <p><strong>E para texturas maiores?</strong></p>
+           <p>Para texturas de GUI e mobs (64px ou mais), o app abre um editor de imagem em janela popup com zoom suave via scroll do mouse.</p>
+           <p><strong>Como exportar?</strong></p>
+           <p>Ao terminar, basta clicar em exportar. O Modly gera automaticamente um arquivo .zip com toda a estrutura correta: pack.mcmeta, texturas, idioma e ícone — pronto para colocar na pasta resourcepacks do Minecraft.</p>`,
+      en: `<p>Modly was developed to make creating Resource Packs for Minecraft Java Edition accessible to anyone, even without technical JSON knowledge.</p>
+           <p><strong>How does the Pixel Art Editor work?</strong></p>
+           <p>The pixel art editor offers a 16×16 or 32×32 pixel canvas with pencil, bucket, eraser and dropper tools. The palette includes official Minecraft colors.</p>
+           <p><strong>What about larger textures?</strong></p>
+           <p>For GUI and mob textures (64px or larger), the app opens an image editor in a popup window with smooth zoom via mouse scroll.</p>
+           <p><strong>How to export?</strong></p>
+           <p>When done, simply click export. Modly automatically generates a .zip file with the correct structure: pack.mcmeta, textures, language and icon — ready to place in Minecraft's resourcepacks folder.</p>`,
+      es: `<p>Modly fue desarrollado para hacer que la creación de Resource Packs para Minecraft Java Edition sea accesible para cualquier persona, incluso sin conocimiento técnico de JSON.</p>
+           <p><strong>¿Cómo funciona el Editor de Pixel Art?</strong></p>
+           <p>El editor ofrece un canvas de 16×16 o 32×32 píxeles con herramientas de lápiz, balde, borrador y cuentagotas.</p>
+           <p><strong>¿Y para texturas más grandes?</strong></p>
+           <p>Para texturas de GUI y mobs (64px o más), la app abre un editor de imagen en ventana popup con zoom suave via scroll.</p>
+           <p><strong>¿Cómo exportar?</strong></p>
+           <p>Al terminar, haz clic en exportar. Modly genera automáticamente un .zip con toda la estructura correcta, listo para usar en Minecraft.</p>`,
+      fr: `<p>Modly a été développé pour rendre la création de Resource Packs pour Minecraft Java Edition accessible à tous, même sans connaissances techniques en JSON.</p>
+           <p><strong>Comment fonctionne l'éditeur de pixel art ?</strong></p>
+           <p>L'éditeur offre un canvas de 16×16 ou 32×32 pixels avec des outils crayon, seau, gomme et pipette.</p>
+           <p><strong>Et pour les grandes textures ?</strong></p>
+           <p>Pour les textures GUI et mobs (64px ou plus), l'app ouvre un éditeur d'image en popup avec zoom fluide via la molette.</p>
+           <p><strong>Comment exporter ?</strong></p>
+           <p>Une fois terminé, cliquez sur exporter. Modly génère automatiquement un .zip avec la structure correcte, prêt pour Minecraft.</p>`,
+      de: `<p>Modly wurde entwickelt, um die Erstellung von Resource Packs für Minecraft Java Edition für jeden zugänglich zu machen, auch ohne JSON-Kenntnisse.</p>
+           <p><strong>Wie funktioniert der Pixel-Art-Editor?</strong></p>
+           <p>Der Editor bietet eine 16×16 oder 32×32 Pixel-Leinwand mit Bleistift-, Eimer-, Radiergummi- und Pipette-Werkzeugen.</p>
+           <p><strong>Was ist mit größeren Texturen?</strong></p>
+           <p>Für GUI- und Mob-Texturen (64px oder mehr) öffnet die App einen Bild-Editor im Popup-Fenster mit sanftem Zoom per Mausrad.</p>
+           <p><strong>Wie exportieren?</strong></p>
+           <p>Wenn fertig, einfach auf Exportieren klicken. Modly generiert automatisch eine .zip-Datei mit der richtigen Struktur, bereit für Minecraft.</p>`
+    }
   }
 };
 
